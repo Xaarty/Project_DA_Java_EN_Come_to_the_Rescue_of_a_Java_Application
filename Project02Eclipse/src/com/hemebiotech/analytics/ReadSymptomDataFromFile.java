@@ -44,4 +44,10 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		return result;
 	}
 
+	@Override
+	public List<String> getSymptoms() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'getSymptoms'");
+	}
+
 }
