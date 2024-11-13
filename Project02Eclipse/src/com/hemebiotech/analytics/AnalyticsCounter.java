@@ -11,10 +11,14 @@ public class AnalyticsCounter {
 
 	ISymptomReader reader;
 	ISymptomWriter writer;
+	CountSymptoms count;
+    SortSymptoms sort;
 
-	public AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer) {
+	public AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer, CountSymptoms count, SortSymptoms sort) {
 		this.reader = reader;
 		this.writer = writer;
+		this.count = count;
+		this.sort = sort;
 	}
 
 	public List<String> getSymptoms() {
@@ -22,11 +26,11 @@ public class AnalyticsCounter {
 	}
 
 	public Map<String, Integer> countSymptoms(List<String> symptoms) {
-		return null;
+		return count.countSymptoms(symptoms);
 	}
 
-	public Map<String, Integer> triSymptoms(Map<String, Integer> symptomsList) {
-		return null;
+	public Map<String, Integer> sortSymptoms(Map<String, Integer> symptomsList) {
+		return sort.sortSymptoms(symptomsList);
 	}
 
 	public void writeSymptoms(Map<String, Integer> symptoms) {
