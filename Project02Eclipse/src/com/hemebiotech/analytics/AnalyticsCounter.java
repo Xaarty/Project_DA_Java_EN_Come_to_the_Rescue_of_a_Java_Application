@@ -9,16 +9,12 @@ import java.util.Map;
 
 public class AnalyticsCounter {
 
-	ISymptomReader reader;
-	ISymptomWriter writer;
-	CountSymptoms count;
-    SortSymptoms sort;
+	private ISymptomReader reader;
+	private ISymptomWriter writer;
 
-	public AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer, CountSymptoms count, SortSymptoms sort) {
+	public AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer) {
 		this.reader = reader;
 		this.writer = writer;
-		this.count = count;
-		this.sort = sort;
 	}
 
 	public List<String> getSymptoms() {
@@ -26,11 +22,11 @@ public class AnalyticsCounter {
 	}
 
 	public Map<String, Integer> countSymptoms(List<String> symptoms) {
-		return count.countSymptoms(symptoms);
+		return new CountSymptoms().countSymptoms(symptoms);
 	}
 
-	public Map<String, Integer> sortSymptoms(Map<String, Integer> symptomsList) {
-		return sort.sortSymptoms(symptomsList);
+	public Map<String, Integer> sortSymptoms(Map<String, Integer> symptoms) {
+		return new SortSymptoms().sortSymptoms(symptoms);
 	}
 
 	public void writeSymptoms(Map<String, Integer> symptoms) {
